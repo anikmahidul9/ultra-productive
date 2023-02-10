@@ -1,0 +1,55 @@
+.info-item{
+    position: sticky;
+    top: 0;
+}
+.info-item h4{
+    display: flex;
+    padding: 10px;
+    color: white;
+}
+.person{
+    display: flex;
+    gap: 10px;
+    color: #ED563B;
+    padding: 5px;
+}
+.text{
+    margin-top: 15px;
+   line-height: 5px;
+}
+.circular-image{
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.info{
+  
+    border-radius: 5px;
+    background-color:#ED563B ;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: flex;
+    color: white;
+    gap: 20px;
+    padding: 10px;
+    justify-content: center;
+    line-height: 10px;
+   
+}
+.time{
+    height: 50px;
+    background-color: dimgray;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+.time button{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
+    
+}

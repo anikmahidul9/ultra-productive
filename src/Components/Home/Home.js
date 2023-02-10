@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import Details from '../Details/Details';
 import './Home.css'
 
 const Home = () => {
@@ -31,7 +32,7 @@ const Home = () => {
             </div>
                     </div>
             <div className="details-container">
-                <p>This is details</p>
+                <Details></Details>
             </div>
         </div>
     );
