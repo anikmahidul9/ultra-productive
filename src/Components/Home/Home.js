@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import Details from '../Details/Details';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import './Home.css'
+import { addToDb } from '../../utilities/fakedb';
 
 const Home = () => {
     const[products,setProduct]=useState([]);
+    const[info,setInfo]=useState([]);
     useEffect(()=>{
         fetch('generated.json')
         .then(res=>res.json())
-        .then(data=>{setProduct(data);console.log(data)})
-    },[])
+        .then(data=>{setProduct(data)})
+    },[]);
+     const addToList =(product)=>{
+      const newInfo=[...info,product]
+      setInfo(newInfo);
+      addToDb(product.id)
+     }
     return (
         <div className='container'>
             <div>
                 <div className="header">
                     
-                <h1>Ultra-Productive</h1>
+                <h1> <FontAwesomeIcon icon={faDumbbell}></FontAwesomeIcon>Ultra-Productive</h1>
                 <h4>Select today's exercise</h4>
                 </div>
 
@@ -23,8 +32,9 @@ const Home = () => {
                 {
                     products.map(product=>
                         <Card
-                        key={product._id}
+                        key={product.id}
                         product={product}
+                        addToList={addToList}
                         ></Card>
                         )
                     }
@@ -32,7 +42,8 @@ const Home = () => {
             </div>
                     </div>
             <div className="details-container">
-                <Details></Details>
+                <Details info={info}></Details>
+               
             </div>
         </div>
     );

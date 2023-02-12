@@ -40,8 +40,8 @@
    
 }
 .time{
-    height: 50px;
-    background-color: dimgray;
+    height: 75px;
+    background-color: rgb(53, 66, 73);
     display: flex;
     align-items: center;
     gap: 10px; 
@@ -50,6 +50,30 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    border:none;
     margin-left: 10px;
     
+}
+.time button:hover{
+    color: white;
+   background-color: #ED563B;
+}
+.calculateTime{
+    background-color:rgb(53, 66, 73);
+    color: white;
+    height: 125px;
+    display: grid;
+   gap: 0px;
+}
+.exercise{
+    height: 50px;
+    display: flex;
+    margin-left: 25px;
+}
+.break{
+    height: 100px;
+    display: flex;
+    margin-left: 25px;
+   vertical-align: top;
+  
 }
