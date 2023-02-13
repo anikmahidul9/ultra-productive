@@ -4,7 +4,7 @@ import Details from '../Details/Details';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
 import './Home.css'
-import { addToDb } from '../../utilities/fakedb';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 
 const Home = () => {
     const[products,setProduct]=useState([]);
@@ -14,6 +14,19 @@ const Home = () => {
         .then(res=>res.json())
         .then(data=>{setProduct(data)})
     },[]);
+    useEffect( () =>{
+        const storedCart = getStoredCart();
+        const savedCart = [];
+        for(const id in storedCart){
+            const addedProduct = products.find(product => product.id === id);
+            if(addedProduct){
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
+        }
+        setInfo(savedCart);
+    }, [products])
      const addToList =(product)=>{
       const newInfo=[...info,product]
       setInfo(newInfo);

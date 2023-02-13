@@ -3,6 +3,8 @@ import './Details.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import image from '../../person.jpg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Details = (props) => {
     const {info} = props;
@@ -16,9 +18,13 @@ const Details = (props) => {
 
     const handleClick=(e)=>{
       
-       setResult(e.target.value);  
+       setResult(result+parseInt(e.target.value));  
     }
-    console.log(info)
+    
+    const notify = () => toast("Congragulations");
+  /*   localStorage.setItem('cart', JSON.stringify(result));
+    const local= localStorage.getItem('cart'); */
+    
          
     return (
         <div className='info-item'>
@@ -56,12 +62,25 @@ const Details = (props) => {
             <h4>Exercise Details</h4>
             <div className="calculateTime">
                 <div className="exercise">
-                    <h5>Exercise Time {total}</h5>
+                    <h5>Exercise Time :  {total}</h5>
                     </div>
                     <div className="break">
-                        <h5>Break Time:   {result} </h5>
+                        <h5>Break Time :   {result} </h5>
                     </div>
+                    <button onClick={notify}>Total Work</button>
+                 
             </div>
+            <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light" />
         </div>
     );
 };

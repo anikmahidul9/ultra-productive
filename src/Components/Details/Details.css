@@ -61,7 +61,7 @@
 .calculateTime{
     background-color:rgb(53, 66, 73);
     color: white;
-    height: 125px;
+    height: 150px;
     display: grid;
    gap: 0px;
 }
@@ -76,4 +76,21 @@
     margin-left: 25px;
    vertical-align: top;
   
+}
+.calculateTime button{
+    background-color:rgb(61, 143, 186);
+    height: 35px;
+    width: 200px;
+    border-radius: 10px;
+    border:none;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:75px;
+}
+.calculateTime button:hover{
+    background-color: #ED563B;
 }
